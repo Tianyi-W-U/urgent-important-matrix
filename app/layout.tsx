@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Urgent-Important Matrix Organizer",
-  description: "Developed by Tianyi Wu with assistance of claude sonnet 3.7",
+  description: "Developed by TY with assistance of claude sonnet 3.7",
 };
 
 export default function RootLayout({
