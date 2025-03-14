@@ -81,7 +81,7 @@ const UrgentImportantMatrix = () => {
     }
   };
   
-  const handleDeleteTask = (id, isUnassigned = false) => {
+  const handleDeleteTask = (id: string, isUnassigned = false) => {
     if (isUnassigned) {
       setUnassignedTasks(unassignedTasks.filter(task => task.id !== id));
     } else {
@@ -132,7 +132,7 @@ const UrgentImportantMatrix = () => {
     setDraggedTask(null);
   };
   
-  const handleRemoveFromMatrix = (taskId) => {
+  const handleRemoveFromMatrix = (taskId: string) => {
     // Find the task in the matrix
     const task = tasks.find(t => t.id === taskId);
     if (task) {
@@ -145,7 +145,7 @@ const UrgentImportantMatrix = () => {
   };
   
   // Toggle completed status on double-click
-  const toggleTaskCompletion = (id, isUnassigned = false) => {
+  const toggleTaskCompletion = (id: string, isUnassigned = false) => {
     if (isUnassigned) {
       setUnassignedTasks(unassignedTasks.map(task => 
         task.id === id ? { ...task, completed: !task.completed } : task
