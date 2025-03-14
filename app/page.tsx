@@ -17,7 +17,7 @@ const UrgentImportantMatrix = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [unassignedTasks, setUnassignedTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
-  const [draggedTask, setDraggedTask] = useState<Task | Null>(null);
+  const [draggedTask, setDraggedTask] = useState<Task | null>(null);
   const [draggedFromUnassigned, setDraggedFromUnassigned] = useState(false);
   const [matrixUrl, setMatrixUrl] = useState('');
   const [isCopied, setIsCopied] = useState(false);
