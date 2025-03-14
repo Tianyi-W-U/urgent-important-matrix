@@ -89,12 +89,12 @@ const UrgentImportantMatrix = () => {
     }
   };
   
-  const handleDragStart = (task, isUnassigned = false) => {
+  const handleDragStart = (task: Task, isUnassigned = false) => {
     setDraggedTask(task);
     setDraggedFromUnassigned(isUnassigned);
   };
   
-  const handleMatrixDrag = (e) => {
+  const handleMatrixDrag = (e: React.MouseEvent<HTMLDivElement>) => {
     if (draggedTask) {
       const matrixRect = e.currentTarget.getBoundingClientRect();
       
