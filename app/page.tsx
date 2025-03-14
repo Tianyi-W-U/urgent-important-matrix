@@ -3,11 +3,21 @@
 import React, { useState, useEffect } from 'react';
 import { X, ArrowRight } from 'lucide-react';
 
+type Task = {
+  id: string;
+  title: string;
+  completed: boolean;
+  important?: number; // Optional if only used in the matrix
+  urgent?: number;
+  x?: number;
+  y?: number;
+};
+
 const UrgentImportantMatrix = () => {
-  const [tasks, setTasks] = useState([]);
-  const [unassignedTasks, setUnassignedTasks] = useState([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [unassignedTasks, setUnassignedTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
-  const [draggedTask, setDraggedTask] = useState(null);
+  const [draggedTask, setDraggedTask] = useState<Task | Null>(null);
   const [draggedFromUnassigned, setDraggedFromUnassigned] = useState(false);
   const [matrixUrl, setMatrixUrl] = useState('');
   const [isCopied, setIsCopied] = useState(false);
@@ -20,7 +30,7 @@ const UrgentImportantMatrix = () => {
     
     if (taskParam) {
       try {
-        const decodedTasks = JSON.parse(decodeURIComponent(taskParam));
+        const decodedTasks: Task[] = JSON.parse(decodeURIComponent(taskParam));
         setTasks(decodedTasks);
       } catch (e) {
         console.error("Failed to parse tasks from URL", e);
@@ -29,7 +39,7 @@ const UrgentImportantMatrix = () => {
     
     if (unassignedParam) {
       try {
-        const decodedUnassigned = JSON.parse(decodeURIComponent(unassignedParam));
+        const decodedUnassigned: Task[] = JSON.parse(decodeURIComponent(unassignedParam));
         setUnassignedTasks(decodedUnassigned);
       } catch (e) {
         console.error("Failed to parse unassigned tasks from URL", e);
